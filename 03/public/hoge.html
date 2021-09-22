@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Chat App</title>
+
+   <!-- ここにアプリのscriptタグを貼り付けます。 -->
+   <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   <h1>リアルタイムチャット</h1>
+   <div>
+       <div>
+           Name<br><input type="text" id="name">
+       </div>
+       <br>
+       <div>
+           Message<br><textarea id="message" row="10"></textarea><br>
+           <br>
+           <button id="send">send</button>
+       </div>
+       <hr>
+       <div id="output"></div>
+   </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB9j4wqllK0y9gfzAEYMqkBHhHL1Xi1_60",
+    authDomain: "el4s-tmp03.firebaseapp.com",
+    databaseURL: "https://el4s-tmp03.firebaseio.com",
+    projectId: "el4s-tmp03",
+    storageBucket: "el4s-tmp03.appspot.com",
+    messagingSenderId: "80642413293",
+    appId: "1:80642413293:web:3a95f827a1d51a590a72e4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+  var database = firebase.database();
+  let room = "bars";
+  const send = document.getElementById("send");
+  const name = document.getElementById("name");
+  const message = document.getElementById("message");
+  const output = document.getElementById("output");
+
+  //送信処理
+  send.addEventListener('click', function() {
+    var now = new Date();
+    database.ref(room).push({
+        name: name.value,
+        message: message.value,
+        date: now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
+    });
+    message.value="";
+    name.value="";
+  });
+
+  //受信処理
+  database.ref(room).on("child_added", function(data) {
+    const v = data.val();
+    const k = data.key;
+    let str = "";
+    str += '<div class="name">名前：'+v.name+'</div>';
+    str += '<div class="text">日時：'+v.date+'</div>';
+    str += '<div class="text">メッセージ：'+v.message+'</div><hr>';
+    output.innerHTML += str;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[debug] [2020-06-27T02:16:42.097Z] ----------------------------------------------------------------------
+[debug] [2020-06-27T02:16:42.100Z] Command:       /Users/rintaro.ogura/.nodebrew/node/v14.3.0/bin/node /Users/rintaro.ogura/.nodebrew/current/bin/firebase serve --host 127.0.0.1
+[debug] [2020-06-27T02:16:42.100Z] CLI Version:   8.4.0
+[debug] [2020-06-27T02:16:42.101Z] Platform:      darwin
+[debug] [2020-06-27T02:16:42.101Z] Node Version:  v14.3.0
+[debug] [2020-06-27T02:16:42.103Z] Time:          Sat Jun 27 2020 11:16:42 GMT+0900 (Japan Standard Time)
+[debug] [2020-06-27T02:16:42.103Z] ----------------------------------------------------------------------
+[debug] [2020-06-27T02:16:42.103Z] 
+[debug] [2020-06-27T02:16:42.116Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-27T02:16:42.117Z] > authorizing via signed-in user
+[debug] [2020-06-27T02:16:42.118Z] [iam] checking project el4s-01 for permissions ["firebase.projects.get"]
+[debug] [2020-06-27T02:16:42.122Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/el4s-01:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-06-27T02:16:42.890Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 27 Jun 2020 02:16:42 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=667","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-27T02:16:42.891Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/el4s-01  
+ 
+[debug] [2020-06-27T02:16:43.501Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 27 Jun 2020 02:16:43 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from '/Users/rintaro.ogura/workspace/HAL2020/EL4S/01'...
+[info] 
+[debug] [2020-06-27T02:16:43.504Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/el4s-01/webApps/-/config  
+ 
+[debug] [2020-06-27T02:16:45.023Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 27 Jun 2020 02:16:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] ✔  hosting: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: 127.0.0.1 - - [27/Jun/2020:02:16:58 +0000] "GET /dist/ HTTP/1.1" 200 7128 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [27/Jun/2020:02:16:58 +0000] \"GET /dist/ HTTP/1.1\" 200 7128 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36\""}}

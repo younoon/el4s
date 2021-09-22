@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>EL4S</title>
+        <link href="./bootstrap/css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                <input class="form-control" type="text" placeholder="検索" aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="login.html">ログイン</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_content">
+                <main>
+                  <div class="container-fluid">
+                    <h1 class="mt-4">World Wide 5ch</h1>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                          <form>
+                            <div class="form-group">
+                              <label for="name">名前</label>
+                              <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                              <label for="message">内容</label>
+                              <textarea class="form-control" id="message" rows="3"></textarea>
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect">Language</label>
+                                <select class="custom-select mr-sm-2" id="language">
+                                  <option >Choose...</option>
+                                  <option value="German">German</option>
+                                  <option value="English" >English</option>
+                                  <option value="French">French</option>
+                                  <option value="Italian">Italian</option>
+                                  <option value="Japanese">Japanese</option>
+                                  <option value="Spanish">Spanish</option>
+                                  <option value="Dutch">Dutch</option>
+                                  <option value="Polish">Polish</option>
+                                  <option value="Russian">Russian</option>
+                                  <option value="Chinese">Chinese</option>
+                                </select>
+                              </div>
+                            <button type="button" class="btn btn-success float-right" id="send">POST</button>
+                          </form>
+                        </div>
+                    </div>
+                  <div class="container-fluid">
+                      <h1 class="mt-4"></h1>
+                      <div class="card mb-4">
+                          <div class="card-body">
+                              <div class="table-responsive">
+                                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                      <thead>
+                                          <tr>
+                                              <th>Name</th>
+                                              <th>Content</th>
+                                              <th>Time</th>
+                                              <th>Lang</th>
+                                              <th></th>
+                                          </tr>
+                                      </thead>
+                                      <tbody id="tbody">
+                                          <tr>
+                                              <td>日本 太郎</td>
+                                              <td>今日の日本の天気は雨</td>
+                                              <td>2020-5-20 10:20:20</td>
+                                              <td>Japanese</td>
+                                              <td><button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Translate</button></td>
+                                          </tr>
+                                          <tr>
+                                            <td>Whoa Taro.</td>
+                                            <td>Bedankt. Ik heb veel plezier gehad vandaag.</td>
+                                            <td>2020-5-20 12:12:39</td>
+                                            <td>Dutch</td>
+                                            <td><button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Translate</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>John</td>
+                                            <td id="foo">What are you guys doing right now?</td>
+                                            <td>2020-5-21 19:00:21</td>
+                                            <td>English</td>
+                                            <td><button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Translate</button></td>
+                                        </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; EL4S</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Translate</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Language:</label>
+                        <select class="custom-select mr-sm-2" id="language">
+                            <option >Choose...</option>
+                            <option value="DE">German</option>
+                            <option value="EN" selected>English</option>
+                            <option value="FR">French</option>
+                            <option value="IT">Italian</option>
+                            <option value="JA">Japanese</option>
+                            <option value="ES">Spanish</option>
+                            <option value="NL">Dutch</option>
+                            <option value="PL">Polish</option>
+                            <option value="RU">Russian</option>
+                            <option value="ZH">Chinese</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Message:</label>
+                      <textarea class="form-control" id="message-text">What are you guys doing right now?</textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="hoge">Translate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+        <script>
+            $("#hoge").click(function (e){
+                $("#exampleModal").modal('hide');
+                document.getElementById("foo").textContent = "お前ら今何してるんだ？"
+                document.getElementById("foo").style.backgroundColor = "orange"
+            })
+        </script>
+        <script>
+          var firebaseRef = new Firebase("https://el4s-01.firebaseapp.com/");
+          var messagesRef = firebaseRef.child('dataTable');
+          messagesRef.on('child_added', function(snapshot) {
+            var msg = snapshot.val();
+            $('<td><button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Translate</button>').prependTo('#tbody');
+            $('<td>').text(msg.language).prependTo('#tbody');
+            $('<td>').text(formated(new Date(), 'YYYY-MM-DD HH:MM:SS')).prependTo('#tbody');
+            $('<td>').text(msg.body).prependTo('#tbody');
+            $('<td>').text(msg.name).prependTo('#tbody');
+            $('<tr>').prependTo('#tbody');
+          });
+          $('#send').click(function() {
+            messagesRef.push({
+              name: $('#name').val(),
+              body: $('#message').val(),
+              language: $('#language').val()
+            });
+          });
+          function formated(date, format) {
+            format = format.replace(/YYYY/, date.getFullYear());
+            format = format.replace(/MM/, date.getMonth() + 1);
+            format = format.replace(/DD/, date.getDate());
+            format = format.replace(/HH/, date.getHours());
+            format = format.replace(/MM/, date.getMinutes());
+            format = format.replace(/SS/, date.getSeconds());
+            return format;
+          }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="./bootstrap/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="./bootstrap/assets/demo/chart-area-demo.js"></script>
+        <script src="./bootstrap/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="./bootstrap/assets/demo/datatables-demo.js"></script>
+    </body>
+</html>
